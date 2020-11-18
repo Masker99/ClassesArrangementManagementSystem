@@ -13,6 +13,8 @@
           init-method="init"
           destroy-method="close">
         <!-- 数据库驱动 -->
+        <property name="driver"
+                  value="${jdbc.driver}"/>
         <!-- Druid会自动根据URL识别驱动名 -->
         <!-- 连接数据库的url -->
         <property name="url"
@@ -57,9 +59,9 @@
     <!-- 配置mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage"
-                  value=""/>
+                  value="com.justDoIt.core.dao"/>
     </bean>
 
     <!-- 扫描Service -->
-    <context:component-scan base-package=""/>
+    <context:component-scan base-package="com.justDoIt.core.service"/>
 </beans>
