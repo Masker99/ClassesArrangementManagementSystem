@@ -11,4 +11,8 @@ MyBatis默认的设置别名的方式就是去除类所在的包后的简单的�
     <typeAliases>
         <package name="com.justDoIt.core.dao"/>
     </typeAliases>
+
+    <mappers>
+
+    </mappers>
 </configuration>
