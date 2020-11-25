@@ -9,10 +9,6 @@ MyBatis默认的设置别名的方式就是去除类所在的包后的简单的�
 比如com.justDoIt.core.dao.User这个实体类的别名就会被设置成User
  -->
     <typeAliases>
-        <package name="com.justDoIt.core.dao"/>
+        <package name="com.justDoIt.core.pojo"/>
     </typeAliases>
-
-    <mappers>
-
-    </mappers>
 </configuration>

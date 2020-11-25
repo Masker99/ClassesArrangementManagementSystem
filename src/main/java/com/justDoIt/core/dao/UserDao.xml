@@ -2,10 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
-    <select id="findUser" parameterType="int" resultType="UserDao">
+<mapper namespace="com.justDoIt.core.dao.UserDao">
+    <select id="findUser" resultType="User">
         select * from user
-        where user.id=#{id}
-          and user.password=#{password}
+        where user.id=#{id} and user.password=#{password}
     </select>
 </mapper>

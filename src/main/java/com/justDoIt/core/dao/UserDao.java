@@ -4,6 +4,6 @@ import com.justDoIt.core.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserDao {
-    public User findUser(@Param("id") int id,
-                         @Param("password") String password);
+    User findUser(@Param("id") int id,
+                  @Param("password") String password);
 }

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 读取db.properties -->
-    <context:property-placeholder location="WEB-INF/db.properties"/>
+    <context:property-placeholder location="classpath:db.properties"/>
 
     <!-- 配置数据源 -->
     <bean id="dataSource"
@@ -54,15 +60,20 @@
 
         <!-- 指定MyBatis核心配置文件位置 -->
         <property name="configLocation"
-                  value="WEB-INF/mybatis-config.xml"/>
+                  value="classpath:mybatis-config.xml"/>
     </bean>
 
-    <!-- 配置mapper扫描器 -->
+    <!-- 配置mapper扫描器,扫描com.justDoIt.core.dao包，写在此包下的接口即可被扫描到 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage"
                   value="com.justDoIt.core.dao"/>
     </bean>
 
-    <!-- 扫描Service -->
-    <context:component-scan base-package="com.justDoIt.core.service"/>
+
+
+<!--    &lt;!&ndash; 扫描Service &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.justDoIt.core.service.impl"/>-->
+<!--    &lt;!&ndash; 配置包扫描器，扫描@Controller注解的类 &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.justDoIt.core.controller"/>-->
+    <context:component-scan base-package="com.justDoIt.core.service,com.justDoIt.core.controller"/>
 </beans>

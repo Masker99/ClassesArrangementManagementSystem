@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login" , method = RequestMethod.POST)
+    @RequestMapping(value = "/register" , method = RequestMethod.POST)
     public String logIn(int id,
                         String password,
                         Model model,
@@ -25,10 +25,10 @@ public class UserController {
         if (user != null){
             session.setAttribute("user",user);
 
-            return "user";
+            return "User";
         }
 
         model.addAttribute("msg","输入错误信息，请重新输入！");
-        return "LogIn";
+        return "LogIn.html";
     }
 }
