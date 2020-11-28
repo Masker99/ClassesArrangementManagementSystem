@@ -10,6 +10,8 @@ public class Teacher implements Serializable {
     private String password;
     private String professional_title;
     private String major;
+    private String department;
+    private int status;
 
     public String getName() {
         return name;
@@ -49,5 +51,21 @@ public class Teacher implements Serializable {
 
     public void setMajor(String major) {
         this.major = major;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

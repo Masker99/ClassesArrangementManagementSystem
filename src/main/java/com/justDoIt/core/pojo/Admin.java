@@ -1,8 +1,13 @@
 package com.justDoIt.core.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class Admin implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private String password;
+    private String name;
     private int status;
 
     public int getId() {
@@ -21,16 +26,19 @@ public class User {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getStatus() {
         return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString(){
-        return "User[id:"+id+";password:"+password+"]";
     }
 }

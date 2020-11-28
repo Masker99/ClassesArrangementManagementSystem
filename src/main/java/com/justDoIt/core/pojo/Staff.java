@@ -9,6 +9,7 @@ public class Staff implements Serializable {
     private int id;
     private String password;
     private String department;
+    private int status;
 
     public String getName() {
         return name;
@@ -40,5 +41,13 @@ public class Staff implements Serializable {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

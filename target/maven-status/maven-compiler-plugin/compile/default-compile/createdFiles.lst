@@ -1,0 +1,8 @@
+com\justDoIt\core\controller\UserController.class
+com\justDoIt\core\pojo\Teacher.class
+com\justDoIt\core\pojo\Staff.class
+com\justDoIt\core\service\impl\UserServiceImpl.class
+com\justDoIt\core\pojo\User.class
+com\justDoIt\core\dao\TeacherDao.class
+com\justDoIt\core\dao\UserDao.class
+com\justDoIt\core\service\UserService.class
