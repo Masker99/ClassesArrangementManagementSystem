@@ -10,6 +10,7 @@ public class CourseSchedule implements Serializable {
     private int classID;
     private String roomID;
     private int section;
+    private int weekday;
 
     public int getTeacherID() {
         return teacherID;
@@ -49,5 +50,13 @@ public class CourseSchedule implements Serializable {
 
     public void setSection(int section) {
         this.section = section;
+    }
+
+    public int getWeekday() {
+        return weekday;
+    }
+
+    public void setWeekday(int weekday) {
+        this.weekday = weekday;
     }
 }

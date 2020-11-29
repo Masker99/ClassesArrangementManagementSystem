@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.justDoIt.core.dao.CourseScheduleDao">
+    <select id="findCourseScheduleByTeacherId" parameterType="int" resultType="CourseSchedule">
+        select * from course_schedule where teacher_id = #{teacher_id}
+    </select>
+
+    <select id="findCourseScheduleByClassId" parameterType="int" resultType="CourseSchedule">
+        select * from course_schedule where class_id = #{class_id}
+    </select>
+
+    <update id="writeInSection" parameterType="int">
+        update course_sechedule set section = #{section}
+            where teacher_id = #{teacher_id}
+              and class_id = #{class_id}
+    </update>
+
+    <update id="writeInRoom" parameterType="int">
+        update course_sechedule set room_id = #{room_id}
+            where teacher_id = #{teacher_id}
+              and class_id = #{class_id}
+              and course_id = #{course_id}
+    </update>
+
+    <update id="writeInWeekday" parameterType="int">
+        update course_sechedule set weekday = #{weekday}
+            where teacher_id = #{teacher_id}
+              and class_id = #{class_id}
+              and course_id = #{course_id}
+    </update>
+</mapper>

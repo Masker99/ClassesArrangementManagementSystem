@@ -4,8 +4,5 @@ import com.justDoIt.core.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 public interface TeacherDao {
-
-    Teacher findTeacher(@Param("id") int id,
-                        @Param("password") String password);
-
+    Teacher findTeacherById(@Param("id") int id);
 }
