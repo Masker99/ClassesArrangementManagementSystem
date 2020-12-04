@@ -7,9 +7,5 @@ import java.util.List;
 
 public interface TeachCourseDao {
     List<TeachCourse> findTeachCourseById(@Param("teacher_id")int teacher_id);
-
-    void signArranged(@Param("teacher_id")int teacher_id,
-                      @Param("course_id")int course_id,
-                      @Param("class_id")int class_id,
-                      @Param("arranged")int arranged);
+    List<TeachCourse> findAllTeachCourse(@Param("school_year")String school_year,int semester);
 }

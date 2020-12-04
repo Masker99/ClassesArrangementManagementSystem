@@ -3,18 +3,48 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.justDoIt.core.dao.CourseScheduleDao">
-    <select id="findCourseScheduleByTeacherId" parameterType="int" resultType="CourseSchedule">
-        select * from course_schedule where teacher_id = #{teacher_id}
+    <select id="findCourseScheduleByTeacherId" parameterType="int,String" resultType="CourseSchedule">
+        select * from course_schedule
+            where teacher_id = #{teacher_id}
+              and school_year = #{school_year}
+              and semester = #{semester}
     </select>
 
     <select id="findCourseScheduleByClassId" parameterType="int" resultType="CourseSchedule">
         select * from course_schedule where class_id = #{class_id}
     </select>
 
+    <select id="findCourseScheduleByAllId" parameterType="int">
+        select * from course_schedule where teacher_id = #{teacher_id}
+                                        and class_id = #{class_id}
+                                        and course_id = #{course_id}
+    </select>
+
+    <select id="isConflictForTeacher" parameterType="String,int">
+        select * from course_schedule where teacher_id = #{teacher_id}
+                                        and weekday = #{weekday}
+                                        and session = #{session}
+                                        and school_year = #{school_year}
+                                        and semester = #{semester}
+    </select>
+
+    <select id="isConflictForClass" parameterType="int">
+        select * from course_schedule where class_id = #{class_id}
+                                        and weekday = #{weekday}
+                                        and session = #{session}
+    </select>
+
+    <select id="isConflictForRoom" parameterType="int,String">
+       select * from course_schedule where room_id = #{room_id}
+                                       and weekday = #{weekday}
+                                       and session = #{session}
+                                       and school_year = #{semester}
+    </select>
     <update id="writeInSection" parameterType="int">
         update course_sechedule set section = #{section}
             where teacher_id = #{teacher_id}
               and class_id = #{class_id}
+              and course_id = #{course_id}
     </update>
 
     <update id="writeInRoom" parameterType="int">
@@ -30,4 +60,15 @@
               and class_id = #{class_id}
               and course_id = #{course_id}
     </update>
+
+    <insert id="writeInCourseSchedule" parameterType="CourseSchedule">
+        insert into course_schedule values(#{teacherID},
+                                           #{courseID},
+                                           #{classID},
+                                           #{roomID},
+                                           #{weekday},
+                                           #{session},
+                                           #{school_year},
+                                           #{semester})
+    </insert>
 </mapper>

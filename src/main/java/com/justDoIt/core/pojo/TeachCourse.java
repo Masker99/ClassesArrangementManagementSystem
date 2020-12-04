@@ -8,7 +8,8 @@ public class TeachCourse implements Serializable {
     private int teacherID;
     private int courseID;
     private int classID;
-    private int arranged;
+    private String school_year;
+    private int semester;
 
     public int getTeacherID() {
         return teacherID;
@@ -34,11 +35,19 @@ public class TeachCourse implements Serializable {
         this.classID = classID;
     }
 
-    public int getArranged() {
-        return arranged;
+    public String getSchool_year() {
+        return school_year;
     }
 
-    public void setArranged(int arranged) {
-        this.arranged = arranged;
+    public void setSchool_year(String school_year) {
+        this.school_year = school_year;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 }
