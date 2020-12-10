@@ -7,6 +7,7 @@ public class Course implements Serializable {
 
     private int courseID;
     private int classHour;
+    private String name;
 
     public int getCourseID() {
         return courseID;
@@ -22,5 +23,13 @@ public class Course implements Serializable {
 
     public void setClassHour(int classHour) {
         this.classHour = classHour;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

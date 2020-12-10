@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.justDoIt.core.dao.TeachCourseDao">
-    <select id="findTeachCourseById" parameterType="int" resultType="TeacherCourse">
+    <select id="findTeachCourseById" parameterType="int" resultType="TeachCourse">
         select * from teach_course where teacher_id = #{teacher_id}
     </select>
 
-    <select id="findAllTeachCourse" resultType="TeacherCourse">
+    <select id="findAllTeachCourse" resultType="TeachCourse">
         select * from teach_course where school_year = #{school_year} and semester = #{semester}
     </select>
 </mapper>

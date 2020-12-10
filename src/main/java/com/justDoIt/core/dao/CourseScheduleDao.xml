@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.justDoIt.core.dao.CourseScheduleDao">
-    <select id="findCourseScheduleByTeacherId" parameterType="int,String" resultType="CourseSchedule">
+    <select id="findCourseScheduleByTeacherId" resultType="CourseSchedule">
         select * from course_schedule
             where teacher_id = #{teacher_id}
               and school_year = #{school_year}
@@ -14,13 +14,13 @@
         select * from course_schedule where class_id = #{class_id}
     </select>
 
-    <select id="findCourseScheduleByAllId" parameterType="int">
+    <select id="findCourseScheduleByAllId" parameterType="int" resultType="CourseSchedule">
         select * from course_schedule where teacher_id = #{teacher_id}
                                         and class_id = #{class_id}
                                         and course_id = #{course_id}
     </select>
 
-    <select id="isConflictForTeacher" parameterType="String,int">
+    <select id="isConflictForTeacher" resultType="CourseSchedule">
         select * from course_schedule where teacher_id = #{teacher_id}
                                         and weekday = #{weekday}
                                         and session = #{session}
@@ -28,13 +28,13 @@
                                         and semester = #{semester}
     </select>
 
-    <select id="isConflictForClass" parameterType="int">
+    <select id="isConflictForClass" parameterType="int" resultType="CourseSchedule">
         select * from course_schedule where class_id = #{class_id}
                                         and weekday = #{weekday}
                                         and session = #{session}
     </select>
 
-    <select id="isConflictForRoom" parameterType="int,String">
+    <select id="isConflictForRoom" resultType="CourseSchedule">
        select * from course_schedule where room_id = #{room_id}
                                        and weekday = #{weekday}
                                        and session = #{session}

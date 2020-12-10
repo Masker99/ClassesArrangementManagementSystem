@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TeachCourseDao {
     List<TeachCourse> findTeachCourseById(@Param("teacher_id")int teacher_id);
-    List<TeachCourse> findAllTeachCourse(@Param("school_year")String school_year,int semester);
+    List<TeachCourse> findAllTeachCourse(@Param("school_year")String school_year,@Param("semester") int semester);
 }

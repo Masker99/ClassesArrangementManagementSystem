@@ -49,7 +49,6 @@ public class ArrangeCourseServiceImpl implements ArrangeCourseService {
                             if (!isConflict(courseSchedule)) {
                                 courseScheduleList.add(courseSchedule);
                             }
-
                         }
             }
         }
@@ -61,9 +60,11 @@ public class ArrangeCourseServiceImpl implements ArrangeCourseService {
     @Override
     public boolean hadArranged(CourseSchedule courseSchedule) {
         boolean hadArranged = false;
-        if(courseScheduleDao.findCourseScheduleByAllId(courseSchedule.getTeacherID(),courseSchedule.getClassID(),courseSchedule.getCourseID())){
+
+        if(courseScheduleDao.findCourseScheduleByAllId(courseSchedule.getTeacherID(),courseSchedule.getClassID(),courseSchedule.getCourseID()) != null){
             hadArranged = true;
         }
+
         return hadArranged;
     }
 
@@ -87,11 +88,11 @@ public class ArrangeCourseServiceImpl implements ArrangeCourseService {
         int semester = courseSchedule.getSemester();
         String school_year = courseSchedule.getSchool_year();
 
-        if(courseScheduleDao.isConflictForTeacher(teacher_id,weekday,session,school_year,semester)){
+        if(courseScheduleDao.isConflictForTeacher(teacher_id,weekday,session,school_year,semester)!=null){
             isConflict = true;
-        }else if(courseScheduleDao.isConflictForClass(class_id,weekday,session)){
+        }else if(courseScheduleDao.isConflictForClass(class_id,weekday,session)!=null){
             isConflict = true;
-        }else if(courseScheduleDao.isConflictForRoom(room_id,weekday,session,school_year,semester)){
+        }else if(courseScheduleDao.isConflictForRoom(room_id,weekday,session,school_year,semester)!=null){
             isConflict = true;
         }
 

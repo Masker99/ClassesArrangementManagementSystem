@@ -10,21 +10,21 @@ public interface CourseScheduleDao {
 
     CourseSchedule findCourseScheduleByClassId(@Param("class_id")int class_id);
 
-    boolean findCourseScheduleByAllId(@Param("teacher_id")int teacher_id,
+    CourseSchedule findCourseScheduleByAllId(@Param("teacher_id")int teacher_id,
                                       @Param("class_id")int class_id,
                                       @Param("course_id")int course_id);
 
-    boolean isConflictForTeacher(@Param("teacher_id")int teacher_id,
+    CourseSchedule isConflictForTeacher(@Param("teacher_id")int teacher_id,
                                  @Param("weekday")int weekday,
                                  @Param("session")int session,
                                  @Param("school_year")String school_year,
                                  @Param("semester")int semester);
 
-    boolean isConflictForClass(@Param("class_id")int class_id,
+    CourseSchedule isConflictForClass(@Param("class_id")int class_id,
                                @Param("weekday")int weekday,
                                @Param("session")int session);
 
-    boolean isConflictForRoom(@Param("room_id")String room_id,
+    CourseSchedule isConflictForRoom(@Param("room_id")String room_id,
                               @Param("weekday")int weekday,
                               @Param("session")int session,
                               @Param("school_year")String school_year,

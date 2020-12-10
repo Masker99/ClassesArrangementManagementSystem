@@ -1,4 +1,4 @@
-package com.justDolt.service;
+package com.justDolt.core.service.impl;
 
 
 import com.justDoIt.core.pojo.User;
